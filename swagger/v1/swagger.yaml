@@ -1,0 +1,31 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/add_product/{id}":
+    post:
+      summary: Adds a product to the cart
+      tags:
+      - Carts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: token
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: product added successfully
+        '404':
+          description: product not found
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
